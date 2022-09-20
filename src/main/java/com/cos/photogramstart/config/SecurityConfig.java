@@ -12,6 +12,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 //        super.configure(http); 기존 시큐리티 기능 모두 비활성화
+        http.csrf().disable(); // csrf 비활성화
         http.authorizeRequests()
                 .antMatchers("/", "/user/**", "/inage/**", "/subscribe/**", "/comment/**").authenticated()
                 .anyRequest().permitAll()
